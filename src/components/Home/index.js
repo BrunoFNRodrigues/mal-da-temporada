@@ -1,14 +1,18 @@
 import React, {useEffect, useState} from "react";
-import cryptoRandomString from 'crypto-random-string';
 import axios from "axios";
 
 export default function Home(){
   const [animes, set_animes] = useState([{}]);
-  useEffect(() => {
+
+  function loadData(){
     const headers={'Accept': 'Applicaton/json'}
     axios.get('https://api.jikan.moe/v3/season/2021/fall', {headers:headers})
     .then((response)=>
       set_animes(response.data.anime))
+  }
+
+  useEffect(() => {
+    loadData();
   }, []);
 
 
@@ -17,17 +21,19 @@ export default function Home(){
     const url = 'http://127.0.0.1:8000/api/animes/'
     const data = {'title':title, 'img':img, 'mal_id': mal_id}
     axios.post(url,data, {headers:headers})
+    .then((res)=>loadData());
 
   }
 
   return (
     <div>
     {animes.map((anime) => (
-      <div> 
-      <h1>{anime.title}</h1>
-      <button onClick={addAnime(anime.title, anime.image_url, anime.id_mal)}>Default</button>;
-      <img src = {anime.image_url}/>
-      </div>))}
+      <div key={anime.mal_id}> 
+        <h1>{anime.title}</h1>
+        <button onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Default</button>
+        <img src = {anime.image_url} alt={`poster do ${anime.title}`}/>
+      </div>
+      ))}
     </div>
   )
 
