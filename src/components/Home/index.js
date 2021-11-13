@@ -25,12 +25,28 @@ export default function Home(){
 
   }
 
+  function getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+  }
+
+
+  function randomAnime(){
+    const anime_ale = animes[getRandomInt(0, animes.length)]
+    while (anime_ale.genre === 12){
+      anime_ale = animes[getRandomInt(0, animes.length)];
+    }
+    return anime_ale
+  }
+
   return (
     <div>
+    <button onClick={()=>{console.log(randomAnime())}}>Defoe</button>
     {animes.map((anime) => (
       <div key={anime.mal_id}> 
         <h1>{anime.title}</h1>
-        <button onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Default</button>
+        <button onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
         <img src = {anime.image_url} alt={`poster do ${anime.title}`}/>
       </div>
       ))}
