@@ -16,6 +16,10 @@ export default function Random(props){
         return anime_ale
       }
 
+      function loadAnime(){
+        set_anime(randomAnime);
+      }
+
       function addAnime(title, img, mal_id){
         const headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
         const url = 'http://127.0.0.1:8000/api/animes/'
@@ -24,13 +28,14 @@ export default function Random(props){
       }
 
     useEffect(() => {
-        set_anime(randomAnime);
+        loadAnime();
       }, []);
     return (
-        <div key={anime.mal_id}> 
+        <div key={anime.mal_id}>
+            <button className = 'btn' onClick={()=>{loadAnime()}}>Recomendção aleatório</button>
             <h1>{anime.title}</h1>
             <img src = {anime.image_url} alt={`poster do ${anime.title}`}/>
-            <button onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
+            <button className = 'btn' onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
         </div>
         );
 };

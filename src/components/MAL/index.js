@@ -26,7 +26,7 @@ export default function MAL(){
           <div key={anime.mal_id}> 
             <h1>{anime.title}</h1>
             <img src = {anime.img} alt={`poster do ${anime.title}`}/>
-            <button onClick={()=>{deleteAnime(anime.id)}}>Remover</button>
+            <button className = 'btn' onClick={()=>{deleteAnime(anime.id)}}>Remover</button>
           </div>
           ))}
         </div>

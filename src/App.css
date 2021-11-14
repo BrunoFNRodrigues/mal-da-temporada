@@ -28,6 +28,14 @@
   color: #61dafb;
 }
 
+.appbar{
+  background-color: blue;
+  align-items: center;
+  height: 6%;
+  display: flex;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.6);
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

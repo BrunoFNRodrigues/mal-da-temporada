@@ -4,6 +4,7 @@ import axios from "axios";
 import MAL from "./components/MAL";
 import Home from "./components/Home";
 import Random from "./components/Random";
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -29,7 +30,7 @@ function App() {
   return (
     <Router>
       <div>
-        <nav>
+        <nav className='appbar'>
           <ul>
             <li>
               <Link to="/">Home</Link>

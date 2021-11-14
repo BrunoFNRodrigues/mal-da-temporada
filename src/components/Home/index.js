@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import './home.css';
 
 export default function Home(props){
   const animes = props.anime_list
@@ -16,9 +17,9 @@ export default function Home(props){
     <div>
     <Link to={"/random"}>Recomendação Aleatória</Link>
     {animes.map((anime) => (
-      <div key={anime.mal_id}> 
+      <div className = 'recom' key={anime.mal_id}> 
         <h1>{anime.title}</h1>
-        <button onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
+        <button className = 'btn' onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
         <img src = {anime.image_url} alt={`poster do ${anime.title}`}/>
       </div>
       ))}
