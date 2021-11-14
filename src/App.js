@@ -33,12 +33,15 @@ function App() {
         <nav className='appbar'>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link class="baritem" to="/">Home</Link>
             </li>
             <li>
-              <Link to="/my_list">MyAnimeList</Link>
+              <Link class="baritem" to="/my_list">MyAnimeList</Link>
             </li>
           </ul>
+          <h1 class="title">
+            MAL da Temporada
+          </h1>
         </nav>
 
         <Switch>

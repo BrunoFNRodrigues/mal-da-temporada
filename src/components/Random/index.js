@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './index.css';
 
 export default function Random(props){
     const animes = props.anime_list
@@ -31,11 +32,15 @@ export default function Random(props){
         loadAnime();
       }, []);
     return (
-        <div key={anime.mal_id}>
-            <button className = 'btn' onClick={()=>{loadAnime()}}>Recomendção aleatório</button>
-            <h1>{anime.title}</h1>
-            <img src = {anime.image_url} alt={`poster do ${anime.title}`}/>
-            <button className = 'btn' onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
-        </div>
+        <main class="container">
+          <div class="animes-container">
+            <div class="anime-container" key={anime.mal_id}>
+                <button className = 'btn' onClick={()=>{loadAnime()}}>Recomendção aleatório</button>
+                <h1>{anime.title}</h1>
+                <img class="poster" src = {anime.image_url} alt={`poster do ${anime.title}`}/>
+                <button className = 'btn' onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
+            </div>
+          </div>
+        </main>
         );
 };

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
+import './index.css';
 
 
 export default function MAL(){
@@ -21,15 +22,17 @@ export default function MAL(){
 
 
     return (
-        <div>
+      <main class="container">
+        <div class="animes-container">
         {animes.map((anime) => (
-          <div key={anime.mal_id}> 
+          <div class="anime-container" key={anime.mal_id}> 
             <h1>{anime.title}</h1>
-            <img src = {anime.img} alt={`poster do ${anime.title}`}/>
+            <img class="poster" src = {anime.img} alt={`poster do ${anime.title}`}/>
             <button className = 'btn' onClick={()=>{deleteAnime(anime.id)}}>Remover</button>
           </div>
           ))}
         </div>
+      </main>
       )
     
 };
