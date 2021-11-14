@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import axios from 'axios';
 
 export default function Random(props){
     const animes = props.anime_list
@@ -16,6 +16,13 @@ export default function Random(props){
         return anime_ale
       }
 
+      function addAnime(title, img, mal_id){
+        const headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
+        const url = 'http://127.0.0.1:8000/api/animes/'
+        const data = {'title':title, 'img':img, 'mal_id': mal_id}
+        axios.post(url,data, {headers:headers})
+      }
+
     useEffect(() => {
         set_anime(randomAnime);
       }, []);
@@ -23,6 +30,7 @@ export default function Random(props){
         <div key={anime.mal_id}> 
             <h1>{anime.title}</h1>
             <img src = {anime.image_url} alt={`poster do ${anime.title}`}/>
+            <button onClick={()=>{addAnime(anime.title,anime.image_url,anime.mal_id)}}>Adicionar</button>
         </div>
         );
 };

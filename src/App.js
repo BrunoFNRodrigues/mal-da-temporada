@@ -35,10 +35,7 @@ function App() {
               <Link to="/">Home</Link>
             </li>
             <li>
-              <Link to="/my_list">My anime list</Link>
-            </li>
-            <li>
-              <Link to="/random">Random</Link>
+              <Link to="/my_list">MyAnimeList</Link>
             </li>
           </ul>
         </nav>
