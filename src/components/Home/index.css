@@ -38,6 +38,7 @@
 
 .btn {
     position: relative;
+    text-decoration: none;
     display: block;
     padding: 10px 15px;
     margin: 1rem;
