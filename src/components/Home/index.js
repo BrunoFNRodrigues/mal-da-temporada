@@ -8,7 +8,7 @@ export default function Home(props){
 
   function addAnime(title, img, mal_id){
     const headers={'Accept': 'application/json', 'Content-Type': 'application/json'}
-    const url = 'http://127.0.0.1:8000/api/animes/'
+    const url = 'http://api-mal-da-temporada.herokuapp.com/api/animes/'
     const data = {'title':title, 'img':img, 'mal_id': mal_id}
     axios.post(url,data, {headers:headers})
   }

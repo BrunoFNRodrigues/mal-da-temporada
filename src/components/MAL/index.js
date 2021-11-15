@@ -6,7 +6,7 @@ import './index.css';
 export default function MAL(){
     const [animes, set_animes] = useState([{}]);
     function loadData(){
-        axios.get('http://127.0.0.1:8000/api/animes/')
+        axios.get('http://api-mal-da-temporada.herokuapp.com/api/animes/')
         .then((response)=>
           set_animes(response.data))
     }
@@ -16,7 +16,7 @@ export default function MAL(){
     }, []);
 
     function deleteAnime(id){
-      axios.delete(`http://127.0.0.1:8000/api/animes/${id}/`)
+      axios.delete(`http://api-mal-da-temporada.herokuapp.com/api/animes/${id}/`)
       .then((res)=>loadData());
     }
 
